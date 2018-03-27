@@ -1,0 +1,23 @@
+exec_once:
+ execs:
+  Install wkhtmltopdf:
+   name: Install wkhtmltopdf
+   command: |
+     #!/usr/bin/env bash
+     wget https://downloads.wkhtmltopdf.org/0.12/0.12.1/wkhtmltox-0.12.1_linux-trusty-amd64.deb -P /tmp
+     sudo dpkg -i /tmp/wkhtmltox-0.12.1_linux-trusty-amd64.deb
+     cp /usr/local/bin/wkhtmltopdf /usr/bin
+     cp /usr/local/bin/wkhtmltoimage /usr/bin
+     rm -rf /tmp/wkhtmltox-0.12.1_linux-trusty-amd64.deb
+
+  Install Odoo:
+   name: Install Odoo
+   timeout: "2000"
+   command: |
+     #!/usr/bin/env bash
+     echo "deb http://nightly.odoo.com/11.0/nightly/deb/ ./" >> /etc/apt/sources.list.d/odoo.list
+     apt-get update && apt-get install odoo
+     pip3 install vobject qrcode
+     apt install -y libldap2-dev libsasl2-dev
+     pip3 install -y pyldap
+     pip3 install -y num2words
