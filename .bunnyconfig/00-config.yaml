@@ -16,9 +16,6 @@ exec_once:
    timeout: "2000"
    command: |
      #!/usr/bin/env bash
+     wget -O - https://nightly.odoo.com/odoo.key | apt-key add -
      echo "deb http://nightly.odoo.com/11.0/nightly/deb/ ./" >> /etc/apt/sources.list.d/odoo.list
      apt-get update && apt-get install -y odoo
-     #pip3 install vobject qrcode
-     #apt install -y libldap2-dev libsasl2-dev
-     #pip3 install -y pyldap
-     #pip3 install -y num2words
