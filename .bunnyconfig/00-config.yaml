@@ -17,7 +17,7 @@ exec_once:
      #!/usr/bin/env bash
      echo "deb http://nightly.odoo.com/11.0/nightly/deb/ ./" >> /etc/apt/sources.list.d/odoo.list
      apt-get update && apt-get install odoo
-     pip3 install vobject qrcode
-     apt install -y libldap2-dev libsasl2-dev
-     pip3 install -y pyldap
-     pip3 install -y num2words
+     #pip3 install vobject qrcode
+     #apt install -y libldap2-dev libsasl2-dev
+     #pip3 install -y pyldap
+     #pip3 install -y num2words
